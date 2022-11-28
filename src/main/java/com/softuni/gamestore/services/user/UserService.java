@@ -1,7 +1,13 @@
 package com.softuni.gamestore.services.user;
 
+import com.softuni.gamestore.domain.entities.User;
+
 public interface UserService {
-    void registerUser(String[] userArgs);
+    String registerUser(String[] userArgs);
 
     String loginUser(String[] userLoginInfo);
+
+    String logout();
+
+    User getLoggedInUser();
 }

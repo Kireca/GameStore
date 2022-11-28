@@ -16,7 +16,7 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    @Column(name = "full_name", nullable = false, unique = true)
+    @Column(name = "full_name", nullable = false)
     private String fullName;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {

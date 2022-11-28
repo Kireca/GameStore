@@ -6,7 +6,7 @@ import static com.softuni.gamestore.constants.Messages.*;
 import static com.softuni.gamestore.constants.Patterns.EMAIL_PATTERN;
 import static com.softuni.gamestore.constants.Patterns.PASSWORD_PATTERN;
 
-public class UserRegister {
+public class UserRegisterDTO {
 
     private String email;
 
@@ -17,7 +17,7 @@ public class UserRegister {
     private String fullName;
 
 
-    public UserRegister(String email, String password, String confirmPassword, String fullName) {
+    public UserRegisterDTO(String email, String password, String confirmPassword, String fullName) {
         setEmail(email);
         setPassword(password);
         setConfirmPassword(confirmPassword);
@@ -26,11 +26,9 @@ public class UserRegister {
     }
 
 
-
-
-
-
-
+    public String successfulRegisterFormat() {
+      return   String.format(SUCCESSFUL_REGISTER_USER, getFullName());
+    }
 
 
     public void setEmail(String email) {
@@ -39,6 +37,7 @@ public class UserRegister {
         if (!isEmailValid) {
             throw new IllegalArgumentException(EMAIL_NOT_VALID_MESSAGE);
         }
+
         this.email = email;
     }
 

@@ -13,17 +13,15 @@ public class Game extends BaseEntity {
     @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
+    private BigDecimal price;
+    @Column
+    private float size;
     @Column(name = "trailer_youtube_id")
     private String trailerYouTubeId;
 
     @Column(name = "image_url")
     private String imageUrl;
-
-    @Column
-    private float size;
-
-    @Column(nullable = false)
-    private BigDecimal price;
 
     @Column(nullable = false)
     private String description;
@@ -35,19 +33,19 @@ public class Game extends BaseEntity {
     }
 
     public Game(String title,
+                BigDecimal price,
+                float size,
                 String trailerId,
                 String imageUrl,
-                float size,
-                BigDecimal price,
                 String description,
                 LocalDate releaseDate) {
-        this.title = title;
-        this.trailerYouTubeId = trailerId;
-        this.imageUrl = imageUrl;
-        this.size = size;
-        this.price = price;
-        this.description = description;
-        this.releaseDate = releaseDate;
+        setTitle(title);
+        setPrice(price);
+        setSize(size);
+        setTrailerId(trailerId);
+        setImageUrl(imageUrl);
+        setDescription(description);
+        setReleaseDate(releaseDate);
     }
 
     public String getTitle() {
